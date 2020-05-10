@@ -1,0 +1,39 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+
+  <h1 class="text-info" >{{title}}</h1>
+  <p>Welcome to {{title}}</p>
+
+
+  <table class="table table-info">
+    <thead>
+      <tr>
+        <th>Name <button onClick="></button> </th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>City</th>
+        <th>States</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% if Set|length > 0  %}
+    {% for element in Set  %}
+      <tr>
+        <td> {{ element.name }} </td>
+        <td> {{ element.email }} </td>
+        <td> {{ element.phone }} </td>
+        <td> {{ element.city }} </td>
+        <td> {{ element.street }} </td>
+        <td> 
+        <a href="/edit/{{element._id}}" class="btn btn-outline-success mx-2 d-inline"> <i class="fa fa-pencil"></i> </a>
+        <a href="/del/{{element._id}}" class="btn btn-outline-danger  d-inline"> <i class="fa fa-trash"></i> </a>
+         </td>
+
+      </tr>
+        {% endfor %}
+        {% endif %}
+    </tbody>
+  </table>
+{% endblock %}
